@@ -1,6 +1,7 @@
 package com.testNGDemo;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
@@ -14,6 +15,8 @@ public class AlertsDemo {
 		driver.get(" https://demoqa.com/alerts");
 		driver.manage().window().maximize();
 		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();",driver.findElement(By.id("alertButton")));
 		driver.findElement(By.id("alertButton")).click();
 //Click ok buttonon alert
 		Thread.sleep(2000);
